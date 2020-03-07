@@ -1,0 +1,122 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "androidx.navigation.safeargs"
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+        applicationId "com.example.android.chartapp"
+        minSdkVersion 24
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        archivesBaseName = "ChartApp_${versionName}"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //test
+    testImplementation "org.koin:koin-test:$koinVersion"
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.robolectric:robolectric:4.3.1"
+    testImplementation 'com.google.truth:truth:1.0'
+    testImplementation 'io.mockk:mockk:1.9.3'
+    testImplementation 'androidx.test.ext:junit-ktx:1.1.1'
+    testImplementation 'androidx.test.ext:truth:1.2.0'
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+    androidTestImplementation 'androidx.test:core:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+
+    //coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesCoreVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinxCoroutinesAndroidVersion"
+
+    //androidx
+    implementation "androidx.appcompat:appcompat:$androidxVersion"
+    implementation "androidx.core:core-ktx:$coreKtxVersion"
+    implementation "com.google.android.material:material:$androidxVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintVersion"
+    implementation "androidx.preference:preference:$androidxVersion"
+    implementation "androidx.multidex:multidex:$multidexVersion"
+    implementation "androidx.recyclerview:recyclerview:$androidxVersion"
+    implementation "androidx.cardview:cardview:$cardviewVersion"
+    implementation "androidx.media:media:$androidxVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleKtxVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:$lifecycleKtxVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleKtxVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleKtxVersion"
+    implementation "androidx.navigation:navigation-runtime-ktx:$navVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
+    implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    //okhttp
+    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+
+    //websocket
+    implementation 'com.rabtman.wsmanager:wsmanager:1.0.2'
+
+    //timber
+    implementation "com.jakewharton.timber:timber:$timberVersion"
+
+    //room
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+
+    //glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    implementation "com.github.bumptech.glide:okhttp3-integration:$glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
+    //koin
+    implementation "org.koin:koin-core:$koinVersion"
+    implementation "org.koin:koin-core-ext:$koinVersion"
+    implementation "org.koin:koin-androidx-ext:$koinVersion"
+    implementation "org.koin:koin-androidx-scope:$koinVersion"
+    implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+    implementation "org.koin:koin-androidx-fragment:$koinVersion"
+
+    // Gson
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    //stetho
+    implementation "com.facebook.stetho:stetho:$stethoVersion"
+
+    //chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+}

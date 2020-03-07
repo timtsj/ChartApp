@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_graph.xml"
+    app:startDestination="@id/chartsFragment">
+
+    <fragment
+        android:id="@+id/chartsFragment"
+        android:name="com.example.android.chartapp.presentation.feature.charts.ChartsFragment"
+        android:label="ChartsFragment" >
+        <action
+            android:id="@+id/action_chartsFragment_to_chartDetail"
+            app:destination="@id/chartDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.android.chartapp.presentation.feature.favorite.FavoriteFragment"
+        android:label="FavoriteFragment" />
+    <fragment
+        android:id="@+id/chartDetail"
+        android:name="com.example.android.chartapp.presentation.feature.chartsDetail.ChartDetail"
+        android:label="ChartDetail" />
+</navigation>
